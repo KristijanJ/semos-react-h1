@@ -8,7 +8,8 @@ import Poster from './Poster';
 
 function MovieCard(props) {
 
-  const { title, genres, poster, duration, rating, oscars, actors } = props.movie;
+  const { title, genres, poster, duration, rating, oscars, actors, id } = props.movie;
+  const handleDelete = props.handleDelete;
   
   return (
     <div className="movie-card">
@@ -16,6 +17,7 @@ function MovieCard(props) {
         <Poster poster={poster} />
       </div>
       <div className="details">
+        <i className="fas fa-trash-alt trash" onClick={() => handleDelete(id)}></i>
         <Info 
           title={title}
           genres={genres}

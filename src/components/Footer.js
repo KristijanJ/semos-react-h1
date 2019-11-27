@@ -1,10 +1,11 @@
 import React from 'react'
+import AddMovie from './AddMovie';
 
 function Footer() {
   return (
-    <div>
-      
-    </div>
+    <footer>
+      <AddMovie />
+    </footer>
   )
 }
 
