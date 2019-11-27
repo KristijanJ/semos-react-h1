@@ -1,9 +1,7 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-class Poster extends Component {
-  render() {
-    return <img src={this.props.poster} alt="poster"/>
-  }
+function Poster({ poster }) {
+    return <img src={poster} alt="poster"/>
 }
 
 export default Poster;

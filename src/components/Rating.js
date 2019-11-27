@@ -1,20 +1,18 @@
-import React, { Component } from 'react';
+import React from 'react';
 import getRating from '../getRating';
 
-class Rating extends Component {
+function Rating(props) {
+  
+  const stars = getRating(props.rating);
 
-  stars = getRating(this.props.rating);
-
-  render() {
-    return (
-      <span className="rating">
-        <h3>Rating</h3>
-        <div className="stars">
-          {this.stars}
-        </div>
-      </span>
-    )
-  }
+  return (
+    <span className="rating">
+      <h3>Rating</h3>
+      <div className="stars">
+        {stars}
+      </div>
+    </span>
+  )
 }
 
 export default Rating;
