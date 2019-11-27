@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 class Poster extends Component {
   render() {
-    return <img src={this.props.image} alt="poster"/>
+    return <img src={this.props.poster} alt="poster"/>
   }
 }
 
