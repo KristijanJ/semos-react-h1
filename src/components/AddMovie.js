@@ -1,41 +1,55 @@
-import React from 'react';
-import Length from './form-components/Length';
-import Genres from './form-components/Genres';
+import React, { useState } from 'react';
+import LengthForm from './form-components/LengthForm';
+import GenresForm from './form-components/GenresForm';
+import TitleForm from './form-components/TitleForm';
+import PosterForm from './form-components/PosterForm';
+import RatingForm from './form-components/RatingForm';
+import OscarsForm from './form-components/OscarsForm';
+import ActorsForm from './form-components/ActorsForm';
 
 function AddMovie() {
+
+  const [titleForm, setTitleForm] = useState('');
+  const [genresForm, setGenresForm] = useState([]);
+  const [ratingForm, setRatingForm] = useState(0);
+
+  function handleSingleInputChange(e) {
+    if (e.target.name === 'title') setTitleForm(e.target.value);
+    if (e.target.name === 'rating') setRatingForm(e.target.value);
+  }
+  
+  function handleGenresInput(e) {
+    e.persist();
+    var options = e.target.options;
+    var value = [];
+
+    for (var i = 0; i < options.length; i++) {
+      if (options[i].selected) value.push(options[i].value);
+    }
+
+    setGenresForm(value);
+  }
+
   return (
     <div className="add-movie-container">
       <h2>Add new movie</h2>
-      <form>
-        <label htmlFor="title">Title</label>
-        <input type="text" name="title" id="title" placeholder="enter a movie title" />
+      <form className="add-new-movie">
+        <TitleForm handleChange={handleSingleInputChange} titleValue={titleForm} />
+        <GenresForm handleGenresInput={handleGenresInput} genresValue={genresForm} />
+        <PosterForm handleChange={handleSingleInputChange} />
 
-        <Genres />
-
-        <label htmlFor="poster">Poster URL</label>
-        <input type="text" name="poster" id="poster" placeholder="paste your url" />
-
-        <Length />
-
-        <div className="rating_oscars">
-          <div className="rating">  
-            <label htmlFor="rating">Rating</label>
-            <input type="number" name="rating" id="rating" placeholder="enter a number between 0 and 5" />
-          </div>
-
-          <div className="oscars">
-            <label htmlFor="oscars">Oscars</label>
-            <input type="number" name="oscars" id="oscars" placeholder="enter the number of oscars" />
-          </div>
+        <div className="length_rating_oscars">
+          <LengthForm />
+          <RatingForm handleChange={handleSingleInputChange} ratingValue={ratingForm} />
+          <OscarsForm handleChange={handleSingleInputChange} />
         </div>
 
-        <label htmlFor="actors">Actors</label>
-        <input type="text" name="actors" id="actors" placeholder="separate actors with comma and a space" />
+        <ActorsForm />
 
-        <input type="submit" value="Submit"/>
+        <input type="submit" className="submit-btn" value="Submit" />
       </form>
     </div>
-  )
+  );
 }
 
 export default AddMovie;

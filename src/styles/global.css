@@ -152,13 +152,13 @@ h3 {
 footer {
   width: 100%;
   text-align: center;
-  padding: 1rem 0;
+  padding: 2rem 0 5rem 0;
   background: #111;
   border-top: 3px solid var(--main-color);
   color: var(--main-color);
 }
 
-form {
+.add-new-movie {
   width: 500px;
   margin: auto;
   display: flex;
@@ -173,12 +173,16 @@ input {
   border-radius: 5px;
 }
 
-.genres-input-container {
+.form-field-info {
+  font-size: 0.7rem;
+}
+
+.genres-form {
   display: flex;
   flex-direction: column;
 }
 
-input[type="submit"] {
+.submit-btn {
   padding: 0.5rem;
   margin-top: 1rem;
   background: var(--main-color);
@@ -189,35 +193,58 @@ input[type="submit"] {
   border-radius: 5px;
 }
 
-form .duration {
+.add-new-movie .duration {
   display: flex;
 }
 
-form .duration input {
+.add-new-movie .duration input {
   width: 100%;
 }
 
-form .double-dots {
-  padding: 0.4rem;
-  margin: 0 0.5rem;
+.add-new-movie .double-dots {
+  padding: 0.3rem 0;
+  margin: 0 0.4rem;
 }
 
-form .rating_oscars {
+.add-new-movie .length_rating_oscars {
   display: flex;
 }
 
-form .rating {
+.add-new-movie .length-form {
+  flex: 1;
+  margin-right: 0.4rem;
+}
+
+.add-new-movie .rating-form {
+  flex: 1;
+  margin-right: 0.4rem;
+}
+
+.add-new-movie .oscars-form {
+  flex: 1;
+}
+
+.form-element {
   display: flex;
   flex-direction: column;
-  flex: 1;
-  color: var(--main-color);
+}
+
+.add-new-movie .actor-inputs {
+  display: flex;
+}
+
+.add-new-movie .actor-inputs input {
+  flex: 10;
   margin-right: 0.5rem;
 }
 
-form .oscars {
-  display: flex;
-  flex-direction: column;
+.add-actor-btn {
+  padding: 0 0.5rem;
+  margin: 0.2rem 0;
+  background: var(--main-color);
+  border: none;
+  color: #333;
+  text-transform: uppercase;
+  border-radius: 5px;
   flex: 1;
-  color: var(--main-color);
-  margin-left: 0.5rem;
 }
